@@ -7,7 +7,7 @@ total_de_tentativas = 3
 
 while total_de_tentativas > 0:
 
-    print("Você tem", total_de_tentativas, " tentativas ")
+    print("Você tem {} tentativas".format(total_de_tentativas))
 
     chute = int(input("Digite o seu número: "))
 
