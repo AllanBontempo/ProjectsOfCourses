@@ -1,27 +1,33 @@
-print('********************************')
-print("Bem vindo ao jogo de Advinhação!")
-print('********************************\n')
+def jogar():
+    
+    print('********************************')
+    print("Bem vindo ao jogo de Advinhação!")
+    print('********************************\n')
 
-numero_secreto = 5
-total_de_tentativas = 3
+    numero_secreto = 5
+    total_de_tentativas = 3
 
-while total_de_tentativas > 0:
+    while total_de_tentativas > 0:
 
-    print("Você tem {} tentativas".format(total_de_tentativas))
+        print("Você tem {} tentativas".format(total_de_tentativas))
 
-    chute = int(input("Digite o seu número: "))
+        chute = int(input("Digite o seu número: "))
 
-    print("Você digitou:", chute)
+        print("Você digitou:", chute)
 
-    if numero_secreto == chute:
-        print("Parabéns! O número está correto!\n")
-        break
-    else:
-        if chute > numero_secreto:
-            print("Você errou! Seu número é maior que o número secreto!\n")
-        elif chute < numero_secreto:
-            print("Você errou! O seu chute foi menor que o número secreto!\n")
+        if numero_secreto == chute:
+            print("Parabéns! O número está correto!\n")
+            break
+        else:
+            if chute > numero_secreto:
+                print("Você errou! Seu número é maior que o número secreto!\n")
+            elif chute < numero_secreto:
+                print("Você errou! O seu chute foi menor que o número secreto!\n")
 
-    total_de_tentativas = total_de_tentativas - 1
+        total_de_tentativas = total_de_tentativas - 1
 
-print("Fim de jogo!")
+    print("Fim de jogo!")
+
+
+if __name__ == "__main__":
+    jogar()
