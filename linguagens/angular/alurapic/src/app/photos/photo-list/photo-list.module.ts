@@ -6,6 +6,9 @@ import {PhotosComponent} from "./photos/photos.component";
 import {LoadButtonComponent} from "./load-button/load-button.component";
 import {FilterByDescription} from "./filter-by-description.pipe";
 import {PhotoModule} from "../photo/photo.module";
+import {CardModule} from "../../shared/components/card/card.module";
+import {SearchModule} from "./search/search.module";
+import {DarkenOnHoverModule} from "../../shared/directives/darken-on-hover/darken-on-hover.module";
 
 
 
@@ -18,7 +21,10 @@ import {PhotoModule} from "../photo/photo.module";
   ],
   imports: [
     CommonModule,
-    PhotoModule
+    PhotoModule,
+    CardModule,
+    SearchModule,
+    DarkenOnHoverModule
   ]
 })
 export class PhotoListModule { }
