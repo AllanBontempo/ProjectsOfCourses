@@ -1,29 +1,30 @@
 <h4 class="text-center">Login</h4>
 
-<form [formGroup]="loginForm" class="form mt-4">
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
 
   <div class="form-group">
     <input formControlName="userName"
-      class="form-control"
-      placeholder="user name"
-      autofocus>
+           #userNameInput
+           class="form-control"
+           placeholder="user name"
+           autofocus>
     <app-vmessage *ngIf="Validate('userName')"
-      [text]="'User name is required!'"></app-vmessage>
+                  [text]="'User name is required!'"></app-vmessage>
   </div>
 
   <div class="form-group">
     <input formControlName="password"
-      type="password"
-      class="form-control"
-      placeholder="password">
+           type="password"
+           class="form-control"
+           placeholder="password">
     <app-vmessage *ngIf="Validate('password')"
                   [text]="'Password is required!'"></app-vmessage>
 
   </div>
 
   <button [disabled]="loginForm.invalid"
-    type="submit"
-    class="btn btn-primary btn-block">
+          type="submit"
+          class="btn btn-primary btn-block">
     login
   </button>
 
