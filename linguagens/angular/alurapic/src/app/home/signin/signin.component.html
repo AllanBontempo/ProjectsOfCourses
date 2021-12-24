@@ -8,7 +8,7 @@
            class="form-control"
            placeholder="user name"
            autofocus>
-    <app-vmessage *ngIf="Validate('userName')"
+    <app-vmessage *ngIf="validate('userName')"
                   [text]="'User name is required!'"></app-vmessage>
   </div>
 
@@ -17,7 +17,7 @@
            type="password"
            class="form-control"
            placeholder="password">
-    <app-vmessage *ngIf="Validate('password')"
+    <app-vmessage *ngIf="validate('password')"
                   [text]="'Password is required!'"></app-vmessage>
 
   </div>

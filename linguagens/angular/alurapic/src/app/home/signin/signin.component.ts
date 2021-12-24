@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
   }
 
 
-  Validate(name: string): boolean {
+  validate(name: string): boolean {
     const nameHasError = this.loginForm.get(name)?.hasError('required');
     if (nameHasError) {
       return nameHasError
