@@ -9,7 +9,8 @@ import {RequestInterceptor} from "./auth/request.interceptor";
   declarations: [],
   imports: [
     CommonModule,
-    HeaderModule
+    HeaderModule,
+
   ],
   providers: [
     {

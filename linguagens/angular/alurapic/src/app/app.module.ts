@@ -8,20 +8,22 @@ import {AppRoutingModule} from "./app.routing.module";
 import {ErrorsModule} from "./errors/errors.module";
 import {CoreModule} from "./core/core.module";
 import {HeaderModule} from "./core/header/header.module";
+import {FooterModule} from "./core/footer/footer.module";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    PhotosModule,
-    ErrorsModule,
-    CoreModule,
-    HeaderModule,
-    AppRoutingModule,
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        PhotosModule,
+        ErrorsModule,
+        CoreModule,
+        HeaderModule,
+        AppRoutingModule,
+        FooterModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
