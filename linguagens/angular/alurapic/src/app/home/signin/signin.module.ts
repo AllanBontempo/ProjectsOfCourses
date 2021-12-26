@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SigninComponent } from './signin.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {VmessageModule} from "../../shared/components/vmessage/vmessage.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -10,10 +11,11 @@ import {VmessageModule} from "../../shared/components/vmessage/vmessage.module";
   declarations: [
     SigninComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    VmessageModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        VmessageModule,
+        RouterModule
+    ]
 })
 export class SigninModule { }
