@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Photo} from "./photo";
+import {Observable} from "rxjs";
+import {PhotoComment} from "./photo-comment";
 const API_URL = 'http://localhost:3000';
 
 
@@ -18,7 +20,7 @@ export class PhotoService {
   //   return this.http.get<Photo[]>(`${API_URL}/${userName}/photos`);
   // }
 
-  listFromUserPaginated(userName: string, page: number) {
+  listFromUserPaginated(userName: string, page: number): Observable<Photo[]> {
     const params = new HttpParams().append('page', page.toString());
     return this.http.get<Photo[]>(`${API_URL}/${userName}/photos`, {params});
   }
@@ -29,5 +31,17 @@ export class PhotoService {
     formData.append('allowComments', allowComments ? 'true' : 'false');
     formData.append('imageFile', file);
     return this.http.post(`${API_URL}/photos/upload`, formData);
+  }
+
+  findById(photoId: number): Observable<Photo> {
+    return this.http.get<Photo>(API_URL + '/photos/' + photoId);
+  }
+
+  getComments(photoId: number): Observable<PhotoComment[]> {
+    return this.http.get<PhotoComment[]>(API_URL + '/photos/' + photoId + '/comments');
+  }
+
+  addComments(photoId: number, commentText: string) {
+    return this.http.post(API_URL + '/photos/' + photoId + '/comments', {commentText});
   }
 }

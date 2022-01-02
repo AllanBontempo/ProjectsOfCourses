@@ -1,6 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {debounceTime, Subject} from "rxjs";
 
 import {Photo} from "../photo/photo";
 import {PhotoService} from "../photo/photo.service";
@@ -24,10 +23,12 @@ export class PhotoListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //@ts-ignore
-    this.userName = this.activatedRoute.snapshot.params.userName;
-    //@ts-ignore
-    this.photos = this.activatedRoute.snapshot.data.photos;
+    this.activatedRoute.params.subscribe((params) => {
+      this.userName = params['userName'];
+      this.photos = this.activatedRoute.snapshot.data['photos'];
+      console.log(this.photos, 'route!!')
+    });
+
   }
 
 

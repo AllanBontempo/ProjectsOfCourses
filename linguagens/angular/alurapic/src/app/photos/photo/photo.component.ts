@@ -11,7 +11,7 @@ export class PhotoComponent implements OnInit {
 
   private _url!: string
 
-  @Input() description = '';
+  @Input() description!: string;
   @Input() set url(url: string) {
     this._url = url;
     if(!url.startsWith('data')) {

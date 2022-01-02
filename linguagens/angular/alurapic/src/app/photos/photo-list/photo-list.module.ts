@@ -9,6 +9,7 @@ import {PhotoModule} from "../photo/photo.module";
 import {CardModule} from "../../shared/components/card/card.module";
 import {SearchModule} from "./search/search.module";
 import {DarkenOnHoverModule} from "../../shared/directives/darken-on-hover/darken-on-hover.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -19,12 +20,13 @@ import {DarkenOnHoverModule} from "../../shared/directives/darken-on-hover/darke
     LoadButtonComponent,
     FilterByDescription
   ],
-  imports: [
-    CommonModule,
-    PhotoModule,
-    CardModule,
-    SearchModule,
-    DarkenOnHoverModule
-  ]
+    imports: [
+        CommonModule,
+        PhotoModule,
+        CardModule,
+        SearchModule,
+        DarkenOnHoverModule,
+        RouterModule
+    ]
 })
 export class PhotoListModule { }
