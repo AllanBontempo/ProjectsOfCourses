@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PhotoService} from "../photo/photo.service";
 import {Router} from "@angular/router";
+import {AlertService} from "../../shared/components/alert/alert.service";
+import {UserService} from "../../core/user/user.service";
 
 @Component({
   selector: 'app-photo-form',
@@ -17,7 +19,9 @@ export class PhotoFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private photoService: PhotoService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService,
+    private userService: UserService
   ) {
   }
 
@@ -42,7 +46,10 @@ export class PhotoFormComponent implements OnInit {
     const dados = this.photoForm.getRawValue();
     dados.file = this.file;
     this.photoService.upload(dados.description, dados.allowComments, dados.file)
-      .subscribe(() => this.router.navigate(['']));
+      .subscribe(() => {
+        this.router.navigate(['/user', this.userService.getUserName()]);
+        this.alertService.success('Upload complete!')
+      });
 
   }
 

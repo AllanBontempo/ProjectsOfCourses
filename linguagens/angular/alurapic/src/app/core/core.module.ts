@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HeaderModule} from "./header/header.module";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {RequestInterceptor} from "./auth/request.interceptor";
+import {AlertModule} from "../shared/components/alert/alert.module";
 
 
 @NgModule({
@@ -10,7 +11,7 @@ import {RequestInterceptor} from "./auth/request.interceptor";
   imports: [
     CommonModule,
     HeaderModule,
-
+    AlertModule
   ],
   providers: [
     {

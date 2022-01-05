@@ -8,13 +8,13 @@ import {Photo} from "../photo/photo";
 @Injectable({
   providedIn: 'root'
 })
-export class PhotoListResolver implements Resolve<Observable<Photo[]>>{
-  constructor(private service: PhotoService) { }
+export class PhotoListResolver implements Resolve<Observable<Photo[]>> {
+  constructor(private service: PhotoService) {
+  }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Photo[]> {
 
-    // @ts-ignore
-    const userName = route.params.userName;
+    const userName = route.params["userName"];
 
     return this.service.listFromUserPaginated(userName, 1);
   }
