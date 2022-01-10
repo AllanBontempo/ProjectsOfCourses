@@ -4,6 +4,8 @@ import {PhotoService} from "../photo/photo.service";
 import {Router} from "@angular/router";
 import {AlertService} from "../../shared/components/alert/alert.service";
 import {UserService} from "../../core/user/user.service";
+import {HttpEvent, HttpEventType} from "@angular/common/http";
+import {finalize} from "rxjs";
 
 @Component({
   selector: 'app-photo-form',
@@ -15,6 +17,7 @@ export class PhotoFormComponent implements OnInit {
   photoForm!: FormGroup;
   file!: File;
   previewFile!: string;
+  percentDone: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -46,11 +49,16 @@ export class PhotoFormComponent implements OnInit {
     const dados = this.photoForm.getRawValue();
     dados.file = this.file;
     this.photoService.upload(dados.description, dados.allowComments, dados.file)
-      .subscribe(() => {
+      .pipe(finalize(() => {
         this.router.navigate(['/user', this.userService.getUserName()]);
-        this.alertService.success('Upload complete!')
-      });
-
+      }))
+      .subscribe((event: HttpEvent<any>) => {
+        if (event.type === HttpEventType.DownloadProgress) {
+          this.percentDone = Math.round(100 * event.loaded / (event.total as number));
+        } else if (event.type === HttpEventType.Response ){
+          this.alertService.success('Upload complete!');
+        }
+      } , err => this.alertService.danger('Upload error!', true));
   }
 
   saveFile(event: any) {
