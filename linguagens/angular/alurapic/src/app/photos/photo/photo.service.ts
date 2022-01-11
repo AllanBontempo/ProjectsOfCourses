@@ -55,7 +55,8 @@ export class PhotoService {
   }
 
   like(photoId: number) {
-    return this.http.post(API_URL + '/photos/' + photoId + '/like', {}, {observe: 'response'})
+    return this.http.post(API_URL + '/photos/' + photoId + '/like', {},
+      {observe: 'response'})
       .pipe(map(() => true))
       .pipe(catchError(err => {
         return err.status === '304' ? of(false) : throwError(err);

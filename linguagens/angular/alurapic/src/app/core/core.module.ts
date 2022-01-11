@@ -11,7 +11,7 @@ import {AlertModule} from "../shared/components/alert/alert.module";
   imports: [
     CommonModule,
     HeaderModule,
-    AlertModule
+    AlertModule,
   ],
   providers: [
     {

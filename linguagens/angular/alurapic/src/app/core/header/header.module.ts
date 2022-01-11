@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import {RouterModule} from "@angular/router";
 import {AlertModule} from "../../shared/components/alert/alert.module";
+import {LoadingModule} from "../../shared/components/loading/loading.module";
 
 
 
@@ -16,7 +17,8 @@ import {AlertModule} from "../../shared/components/alert/alert.module";
     imports: [
         CommonModule,
         RouterModule,
-        AlertModule
+        AlertModule,
+        LoadingModule
     ]
 })
 export class HeaderModule { }
