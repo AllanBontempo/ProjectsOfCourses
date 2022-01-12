@@ -5,6 +5,7 @@ import {NewUser} from "./new-user";
 import {SignupService} from "./signup.service";
 import {Router} from "@angular/router";
 import {PlatformDetectorService} from "../../core/platform-detector/platform-detector.service";
+import {userNamePassword} from "./username-password.validator";
 
 @Component({
   selector: 'app-singup',
@@ -66,7 +67,12 @@ export class SignupComponent implements OnInit, AfterViewInit {
           Validators.maxLength(14)
         ]
       ]
-    });
+    },
+      {
+        validators: userNamePassword
+      }
+
+    );
   }
 
   validate(name: string, error: string): boolean {

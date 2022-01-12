@@ -42,6 +42,8 @@
                   [text]="'Minimum length is 8!'"></app-vmessage>
     <app-vmessage *ngIf="validate('password', 'maxlength')"
                   [text]="'Maximum length is 14!'"></app-vmessage>
+    <app-vmessage *ngIf="signupForm?.hasError('userNamePassword')"
+                  [text]="'Password must be different then username!'"></app-vmessage>
   </div>
 
   <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary btn-block">Register</button>
