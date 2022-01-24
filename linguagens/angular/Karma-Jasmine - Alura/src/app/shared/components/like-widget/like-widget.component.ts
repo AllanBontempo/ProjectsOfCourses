@@ -14,6 +14,7 @@ export class LikeWidgetComponent implements OnInit {
   @Output() public liked = new EventEmitter<void>();
   @Input() public id: string = null;
   @Input() public likes: number;
+  @Input() public prefix: string = null;
   public fonts = {
     faThumbsUp
   };
@@ -26,7 +27,8 @@ export class LikeWidgetComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.id) {
-      this.id = this.uniqueIdService.generatedUniqueIdWithPrefix('like-widget');
+      const prefrix = this.prefix ? this.prefix : 'like-widget';
+      this.id = this.uniqueIdService.generatedUniqueIdWithPrefix(prefrix);
     }
   }
 
